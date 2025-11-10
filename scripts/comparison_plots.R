@@ -367,18 +367,24 @@ hector_v_obs_fxn <- function(hector_data, vars, SAVE = FALSE){
 }
 
 
-hector_v_obs_fxn(hector_data, vars = GMST()) ->
+hector_v_obs_fxn(hector_data, vars = GMST()) + 
+  labs(y = "Temperature anomaly relative to  1951-1980 ", 
+      caption = "OHC observations from Morice et al. [2021]") -> 
   plot; plot
 
 ggsave(plot, filename = "figs/obs_v_hector_gmst.png", height = 6, width = 6)
 
-hector_v_obs_fxn(hector_data, vars = "OHC") ->
+hector_v_obs_fxn(hector_data, vars = "OHC") + 
+  labs(y = "Ocean heat content relative to 2005-2014 (ZJ)", 
+       caption = "OHC observations from Kuhlbrodt et al. [2023]") -> 
   plot; plot
 
 ggsave(plot, filename = "figs/obs_v_hector_ohc.png", height = 6, width = 6)
 
 
-hector_v_obs_fxn(hector_data, vars = CONCENTRATIONS_CO2()) ->
+hector_v_obs_fxn(hector_data, vars = CONCENTRATIONS_CO2()) + 
+  labs(y = "Atmospheric CO2 concentrations (ppmv CO2)", 
+      caption = "OHC observations from Meinshausen et al. [2020]") -> 
   plot; plot
 
 ggsave(plot, filename = "figs/obs_v_hector_co2.png", height = 6, width = 6)
